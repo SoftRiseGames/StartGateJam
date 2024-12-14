@@ -11,5 +11,5 @@ public class So_PowerAndManaWall : ScriptableObject
 public enum WallType
 {
     ManaBall,
-    PowerBall
+    AmountBall
 }

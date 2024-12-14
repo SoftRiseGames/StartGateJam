@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ManaBall
   m_EditorClassIdentifier: 
   WallSkin: {fileID: 0}
-  wallType: 0
+  wallType: 1
   ManaOrPowerIncreaser: 10

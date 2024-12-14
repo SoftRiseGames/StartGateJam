@@ -32,7 +32,7 @@ public class WallScript : MonoBehaviour
                 ManaCount?.Invoke();
             }
                 
-            else if (WallType.wallType == global::WallType.PowerBall)
+            else if (WallType.wallType == global::WallType.AmountBall)
             {
                 PowerCount?.Invoke();
             }
@@ -49,7 +49,7 @@ public class WallScript : MonoBehaviour
                 ManaCount?.Invoke();
             }
 
-            else if (WallType.wallType == global::WallType.PowerBall)
+            else if (WallType.wallType == global::WallType.AmountBall)
             {
                 GameManager.Instance.AmountPointIncrease = WallType.ManaOrPowerIncreaser;
                 PowerCount?.Invoke();

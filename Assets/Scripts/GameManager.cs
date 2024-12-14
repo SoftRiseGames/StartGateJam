@@ -6,17 +6,21 @@ public class GameManager : MonoBehaviour
     private float _amountValue;
     private float _manaPoint;
 
+    private float CharacterHealth;
     [HideInInspector] public float ShieldValue;
     [HideInInspector] public float AttackValue;
     public float AmountPointIncrease;
     public float ManaPointIncrease;
+    
 
     public static GameManager Instance;
+
 
     [SerializeField] TextMeshProUGUI AmountText;
     [SerializeField] TextMeshProUGUI ManaText;
     [SerializeField] TextMeshProUGUI ShieldText;
 
+    public float EnemyDamage;
     public float AmountValue
     {
         get => _amountValue;
@@ -74,5 +78,15 @@ public class GameManager : MonoBehaviour
         Debug.Log(ManaPointIncrease);
         Debug.Log(ManaPoint);
         Debug.Log("Mana");
+    }
+
+    void ShieldDecreraser()
+    {
+        ShieldValue = ShieldValue - EnemyDamage;
+        if (ShieldValue <= 0)
+        {
+            CharacterHealth = CharacterHealth - Mathf.Abs(ShieldValue);
+        }
+    
     }
 }

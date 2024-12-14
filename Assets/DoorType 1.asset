@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DoorType 1
   m_EditorClassIdentifier: 
   isCrackable: 0
-  GateType: 3
+  GateType: 0
   GateSprite: {fileID: 0}
