@@ -7,6 +7,7 @@ public class ButtonManager : MonoBehaviour
     public static Action CharacterWindAction;
     public static Action CharacterShieldAction;
     public static Action InteractFalse;
+    public static Action InteractTrue;
 
   public void CharacterButtonEvent()
     {
@@ -20,9 +21,14 @@ public class ButtonManager : MonoBehaviour
     {
         CharacterShieldAction?.Invoke();
     }
-    public void SkillButtonInteractSituation()
+    public void SkillButtonInteractFalseSituation()
     {
         InteractFalse?.Invoke();
         Debug.Log("click");
     }
+    public void SkillButtonInteractTrueSituation()
+    {
+        InteractTrue?.Invoke();
+    }
+    
 }
