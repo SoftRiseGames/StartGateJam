@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using System.Collections;
 
 public class ForceSystemManager : MonoBehaviour
 {
@@ -21,6 +23,8 @@ public class ForceSystemManager : MonoBehaviour
 	public BallScript ball;
 	public Trajectory trajectory;
 	[SerializeField] float pushForce = 4f;
+	bool isHolding = false; // Fareyi basýlý tutma kontrolü
+	[SerializeField] float holdThreshold = 0.25f; // Gecikme süresi
 
 	bool isDragging = false;
 
@@ -47,16 +51,25 @@ public class ForceSystemManager : MonoBehaviour
 
 		if (isDragForce)
 		{
+			if (IsPointerOverUI() || !GameManager.Instance.canDrag) return;
+
 			if (Input.GetMouseButtonDown(0))
 			{
-				isDragging = true;
-				OnDragStart();
+				StartCoroutine(HoldDetection());
 			}
+
 			if (Input.GetMouseButtonUp(0))
 			{
-				isDragging = false;
-				isDragForce = false;
-				OnDragEnd();
+				// Eðer basýlý tutulmamýþsa OnDragEnd çalýþmasýn
+				if (isHolding)
+				{
+					isDragging = false;
+					isDragForce = false;
+					OnDragEnd();
+				}
+
+				isHolding = false; // Basýlý tutma sýfýrlanýr
+				StopAllCoroutines(); // Coroutine'i durdur
 			}
 
 			if (isDragging)
@@ -65,6 +78,15 @@ public class ForceSystemManager : MonoBehaviour
 			}
 		}
 
+	}
+
+	IEnumerator HoldDetection()
+	{
+		isHolding = false; // Baþlangýçta basýlý tutulmadýðýný varsay
+		yield return new WaitForSeconds(holdThreshold); // Gecikme süresi kadar bekle
+		isHolding = true; // Basýlý tutulduðunu iþaretle
+		isDragging = true; // Sürükleme iþlemini baþlat
+		OnDragStart();
 	}
 	void OnDragStart()
 	{
@@ -97,5 +119,9 @@ public class ForceSystemManager : MonoBehaviour
 
 		trajectory.Hide();
 	}
-
+	private bool IsPointerOverUI()
+	{
+		// EventSystem'in PointerOverGameObject kontrolü
+		return EventSystem.current.IsPointerOverGameObject();
+	}
 }

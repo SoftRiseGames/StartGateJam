@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e4ccf63bacfad41add77847283972d, type: 3}
-  m_Name: DoorType 1
+  m_Script: {fileID: 11500000, guid: 546bc27d06daa6741aa79e63409215a1, type: 3}
+  m_Name: ShieldBall
   m_EditorClassIdentifier: 
-  isCrackable: 0
-  GateType: 0
-  GateSprite: {fileID: 0}
+  WallSkin: {fileID: 8806835023593955686, guid: dfc9925d1bdc1f542bcb7c1f96ba3be8, type: 3}
+  wallType: 2
+  ManaOrPowerIncreaser: 10
+  NeedToBreak: 1

@@ -4,6 +4,8 @@ public class DamageWind : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField]WingType wingType;
+    public float EnemyDamage;
+    public float CharacterDamage;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

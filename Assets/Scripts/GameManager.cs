@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float AttackValue;
     public float AmountPointIncrease;
     public float ManaPointIncrease;
-    
+    public bool canDrag = true;
 
     public static GameManager Instance;
 
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         GateScript.isPowerDoubler += AmpuntDoubler;
         WallScript.ManaCount += ManaCounter;
         WallScript.PowerCount += AmountDoubler;
+        CharacterEvent.isCharacterDamage += ShieldAndHealthDecreraser;
     }
 
     private void OnDisable()
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
         GateScript.isPowerDoubler -= AmpuntDoubler;
         WallScript.ManaCount -= ManaCounter;
         WallScript.PowerCount -= AmountDoubler;
+        CharacterEvent.isCharacterDamage -= ShieldAndHealthDecreraser;
     }
 
     private void Start()
@@ -80,7 +82,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Mana");
     }
 
-    void ShieldDecreraser()
+    void ShieldAndHealthDecreraser()
     {
         ShieldValue = ShieldValue - EnemyDamage;
         if (ShieldValue <= 0)

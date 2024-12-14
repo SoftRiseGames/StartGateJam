@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546bc27d06daa6741aa79e63409215a1, type: 3}
   m_Name: ManaBall
   m_EditorClassIdentifier: 
-  WallSkin: {fileID: 0}
-  wallType: 1
+  WallSkin: {fileID: -8425141836431729757, guid: c2ebd56df7990774482fe1641045afaf, type: 3}
+  wallType: 0
   ManaOrPowerIncreaser: 10
+  NeedToBreak: 1

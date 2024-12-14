@@ -7,9 +7,12 @@ public class So_PowerAndManaWall : ScriptableObject
     public Sprite WallSkin;
     public WallType wallType;
     public float ManaOrPowerIncreaser;
+    public float NeedToBreak;
 }
 public enum WallType
 {
     ManaBall,
-    AmountBall
+    AmountBall,
+    ShieldBall,
+    DefaultBall
 }

@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
 using System.Collections;
+
+
 public class BallScript : MonoBehaviour
 {
     [SerializeField] PhysicsMaterial2D physics;
@@ -74,5 +76,6 @@ public class BallScript : MonoBehaviour
     {
         ColliderToSwitchAction?.Invoke();
     }
-    
+ 
+
 }

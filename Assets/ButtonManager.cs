@@ -9,7 +9,7 @@ public class ButtonManager : MonoBehaviour
     public static Action InteractFalse;
     public static Action InteractTrue;
 
-  public void CharacterButtonEvent()
+    public void CharacterButtonEvent()
     {
         isAmountDecrease?.Invoke();
     }
@@ -30,5 +30,27 @@ public class ButtonManager : MonoBehaviour
     {
         InteractTrue?.Invoke();
     }
-    
+    public void objectDoublerID()
+    {
+        SkillGateManager.ListNumber = 0;
+    }
+    public void ObjectUpscalerID()
+    {
+        SkillGateManager.ListNumber = 1;
+    }
+    public void MomentumChangerID()
+    {
+        SkillGateManager.ListNumber = 2;
+    }
+    public void bulletPowerID()
+    {
+        SkillGateManager.ListNumber = 3;
+    }
+    public void AmountDoublerID()
+    {
+        SkillGateManager.ListNumber = 4;
+    }
+
+
+
 }

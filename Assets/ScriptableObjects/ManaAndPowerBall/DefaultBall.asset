@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 546bc27d06daa6741aa79e63409215a1, type: 3}
-  m_Name: PowerBall
+  m_Name: DefaultBall
   m_EditorClassIdentifier: 
-  WallSkin: {fileID: 0}
-  wallType: 1
+  WallSkin: {fileID: 1208040086343421634, guid: 388add20180fc044986379e2ad40b715, type: 3}
+  wallType: 3
   ManaOrPowerIncreaser: 10
+  NeedToBreak: 1

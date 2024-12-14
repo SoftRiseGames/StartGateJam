@@ -1,13 +1,22 @@
 using UnityEngine;
 using System;
+using Sirenix.OdinInspector;
+
 
 public class WallScript : MonoBehaviour
 {
     [SerializeField] CircleCollider2D collider;
-    [SerializeField] So_PowerAndManaWall WallType;
+    [SerializeField] private SpriteRenderer WallSpriteRenderer;
+    public So_PowerAndManaWall WallType;
     public static Action PowerCount;
     public static Action ManaCount;
-    
+
+    [Button("Initialize Bubble")]
+    public void InitBubble(So_PowerAndManaWall bubble)
+    {
+        WallType = bubble;
+        WallSpriteRenderer.sprite = WallType.WallSkin;
+    }
 
     private void Awake()
     {
@@ -39,6 +48,9 @@ public class WallScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "ball")
