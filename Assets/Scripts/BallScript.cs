@@ -63,7 +63,7 @@ public class BallScript : MonoBehaviour
     }
     
     
-    void BallUpScale() => gameObject.transform.localScale = new Vector2(1.25f, 1.25f);
+    void BallUpScale() => gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x+0.5f, gameObject.transform.localScale.y + 0.5f);
     void MomentumChange() 
     {
         DeActivatedRb();

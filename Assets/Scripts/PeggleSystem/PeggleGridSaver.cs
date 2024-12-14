@@ -3,20 +3,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 
-
-
-[CreateAssetMenu(fileName = "PeggleGridData", menuName = "Peggle/Grid Data")]
-public class So_PeggleGridData : ScriptableObject
-{
-    public List<GridCellData> cells; // Grid hücrelerini saklayacak liste
-}
-
-[System.Serializable]
-public class GridCellData
-{
-    public Vector2 position; // Hücrenin pozisyonu
-    public So_PowerAndManaWall wallType; // Hücreye atanmýþ WallType
-}
 public class PeggleGridSaver : MonoBehaviour
 {
 

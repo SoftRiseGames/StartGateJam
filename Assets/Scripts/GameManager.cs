@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private float _amountValue;
@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
     public float AmountPointIncrease;
     public float ManaPointIncrease;
     public float ShieldPointIncrease;
+    public float EnemyHealth;
+    public float EnemyIncreaser;
     public bool canDrag = true;
-
+    public float EnemyShield;
     public static GameManager Instance;
 
 
@@ -45,7 +47,8 @@ public class GameManager : MonoBehaviour
         WallScript.ManaCount += ManaCounter;
         WallScript.ShieldCount += ShieldCounter;
         WallScript.PowerCount += AmountDoubler;
-        CharacterEvent.isCharacterDamage += ShieldAndHealthDecreraser;
+        CharacterAndEnemyEvent.isCharacterDamage += CharacterShieldAndHealthDecreraser;
+        CharacterAndEnemyEvent.isEnemyDamage += EnemyShieldAndHealthDecreaser;
     }
 
     private void OnDisable()
@@ -54,7 +57,8 @@ public class GameManager : MonoBehaviour
         WallScript.ManaCount -= ManaCounter;
         WallScript.PowerCount -= AmountDoubler;
         WallScript.ShieldCount -= ShieldCounter;
-        CharacterEvent.isCharacterDamage -= ShieldAndHealthDecreraser;
+        CharacterAndEnemyEvent.isCharacterDamage -= CharacterShieldAndHealthDecreraser;
+        CharacterAndEnemyEvent.isEnemyDamage -= EnemyShieldAndHealthDecreaser;
     }
 
     private void Start()
@@ -67,8 +71,17 @@ public class GameManager : MonoBehaviour
     {
         AmountText.text = "Amount: " + StandartValueAmount.ToString();
         ManaText.text = "Mana: " + ManaValueAmount.ToString();
+        ShieldText.text = "Shield: " + ShieldValueAmount.ToString();
     }
+    void GameOver()
+    {
+        if (EnemyHealth <= 0)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+        if (CharacterHealth <= 0)
+            Debug.Log("Game Over");
+            
+    }
     void AmpuntDoubler()
     {
         StandartValueAmount *= 2;
@@ -93,12 +106,17 @@ public class GameManager : MonoBehaviour
     void ShieldCounter()
     {
         ShieldValue += ShieldPointIncrease;
-        Debug.Log(ManaPointIncrease);
-        Debug.Log(ManaValueAmount);
         Debug.Log("Shield");
     }
-
-    void ShieldAndHealthDecreraser()
+    void EnemyShieldAndHealthDecreaser()
+    {
+        EnemyShield = EnemyShield - StandartValueAmount;
+        if (ShieldValue <= 0)
+        {
+            EnemyHealth = EnemyHealth - Mathf.Abs(EnemyShield);
+        }
+    }
+    void CharacterShieldAndHealthDecreraser()
     {
         ShieldValue = ShieldValue - EnemyDamage;
         if (ShieldValue <= 0)

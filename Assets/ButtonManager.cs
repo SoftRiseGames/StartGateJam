@@ -51,6 +51,15 @@ public class ButtonManager : MonoBehaviour
         SkillGateManager.ListNumber = 4;
     }
 
+    public void WingAttackDecreaseEvent()
+    {
+
+    }
+    public void DefenceEvent()
+    {
+
+    }
+
 
 
 }
