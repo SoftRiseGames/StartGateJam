@@ -1,13 +1,17 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    float AmountCoin;
+    public float AmountValue;
     public float ManaPoint;
     public float AmountPointIncrease;
     public float ManaPointIncrease;
 
     public static GameManager Instance;
+
+    [SerializeField] TextMeshProUGUI AmountText;
+    [SerializeField] TextMeshProUGUI ManaText;
     private void OnEnable()
     {
         GateScript.isPowerDoubler += AmpuntDoubler;
@@ -27,18 +31,22 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
     }
-
+    private void Update()
+    {
+        AmountText.text ="Amount: " +AmountValue.ToString();
+        ManaText.text ="Mana: "+ ManaPoint.ToString();
+    }
 
     void AmpuntDoubler() 
     {
-        AmountCoin = AmountCoin * 2;
-        Debug.Log(AmountCoin);
+        AmountValue = AmountValue * 2;
+        Debug.Log(AmountValue);
 
     } 
     void AmountDoubler() 
     {
-        AmountCoin = AmountCoin + AmountPointIncrease;
-        Debug.Log(AmountCoin);
+        AmountValue = AmountValue + AmountPointIncrease;
+        Debug.Log(AmountValue);
         Debug.Log("Power");
     }
 

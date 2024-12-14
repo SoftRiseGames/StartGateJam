@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Attack
   m_EditorClassIdentifier: 
   buttonType: 1
-  MinManaCount: 10
+  MinManaCount: 0

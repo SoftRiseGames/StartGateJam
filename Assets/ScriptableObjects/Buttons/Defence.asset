@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Defence
   m_EditorClassIdentifier: 
   buttonType: 0
-  MinManaCount: 10
+  MinManaCount: 0
