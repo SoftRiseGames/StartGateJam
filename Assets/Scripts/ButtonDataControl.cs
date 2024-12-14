@@ -22,7 +22,7 @@ public class ButtonDataControl : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.ManaPoint >= buttonOptions.MinManaCount)
+        if (GameManager.Instance.ManaValueAmount >= buttonOptions.MinManaCount)
             gameObject.GetComponent<Button>().interactable = true;
         else
             gameObject.GetComponent<Button>().interactable = false;
@@ -30,8 +30,8 @@ public class ButtonDataControl : MonoBehaviour
     }
     void AmountDecrease()
     {
-        if(GameManager.Instance.ManaPoint>0)
-        GameManager.Instance.ManaPoint = GameManager.Instance.ManaPoint - buttonOptions.MinManaCount;
+        if(GameManager.Instance.ManaValueAmount>0)
+        GameManager.Instance.ManaValueAmount = GameManager.Instance.ManaValueAmount - buttonOptions.MinManaCount;
     }
    
 }

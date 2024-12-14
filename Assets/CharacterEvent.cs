@@ -20,7 +20,7 @@ public class CharacterEvent : MonoBehaviour
         {
             GameManager.Instance.EnemyDamage = collision.transform.GetComponent<DamageWind>().EnemyDamage;
             isCharacterDamage?.Invoke();
-            Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
 
     }

@@ -23,6 +23,7 @@ public class SkillGateManager : MonoBehaviour
     }
     private void OnEnable()
     {
+      
         ButtonManager.InteractFalse += FalseInteract;
         ButtonManager.InteractTrue += TrueInteract;
     }
@@ -35,12 +36,13 @@ public class SkillGateManager : MonoBehaviour
     
     void FalseInteract()
     {
-        PreviewGate();
+        
         foreach (GameObject skillbutton in SkillButtons)
         {
             skillbutton.GetComponent<Button>().interactable = false;
             Debug.Log("false");
         }
+        PreviewGate();
     }
     void TrueInteract()
     {

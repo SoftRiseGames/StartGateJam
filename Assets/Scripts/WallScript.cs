@@ -10,6 +10,7 @@ public class WallScript : MonoBehaviour
     public So_PowerAndManaWall WallType;
     public static Action PowerCount;
     public static Action ManaCount;
+    public static Action ShieldCount;
 
     [Button("Initialize Bubble")]
     public void InitBubble(So_PowerAndManaWall bubble)
@@ -57,14 +58,20 @@ public class WallScript : MonoBehaviour
         {
             if (WallType.wallType == global::WallType.ManaBall)
             {
-                GameManager.Instance.ManaPointIncrease = WallType.ManaOrPowerIncreaser;
+                GameManager.Instance.ManaPointIncrease = WallType.ManaPowerAndShieldIncreaser;
                 ManaCount?.Invoke();
             }
 
             else if (WallType.wallType == global::WallType.AmountBall)
             {
-                GameManager.Instance.AmountPointIncrease = WallType.ManaOrPowerIncreaser;
+                GameManager.Instance.AmountPointIncrease = WallType.ManaPowerAndShieldIncreaser;
                 PowerCount?.Invoke();
+            }
+
+            else if(WallType.wallType == global::WallType.ShieldBall)
+            {
+                GameManager.Instance.ShieldPointIncrease = WallType.ManaPowerAndShieldIncreaser;
+                ShieldCount?.Invoke();
             }
             Destroy(gameObject);
         }

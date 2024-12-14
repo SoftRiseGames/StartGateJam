@@ -6,7 +6,7 @@ public class So_PowerAndManaWall : ScriptableObject
 {
     public Sprite WallSkin;
     public WallType wallType;
-    public float ManaOrPowerIncreaser;
+    public float ManaPowerAndShieldIncreaser;
     public float NeedToBreak;
 }
 public enum WallType

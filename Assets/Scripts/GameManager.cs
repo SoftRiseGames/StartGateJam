@@ -4,13 +4,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private float _amountValue;
-    private float _manaPoint;
-
+    private float _manaValue;
+    private float _shieldValue;
     private float CharacterHealth;
     [HideInInspector] public float ShieldValue;
     [HideInInspector] public float AttackValue;
     public float AmountPointIncrease;
     public float ManaPointIncrease;
+    public float ShieldPointIncrease;
     public bool canDrag = true;
 
     public static GameManager Instance;
@@ -21,22 +22,28 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI ShieldText;
 
     public float EnemyDamage;
-    public float AmountValue
+    public float StandartValueAmount
     {
         get => _amountValue;
         set => _amountValue = Mathf.Max(0, value);
     }
 
-    public float ManaPoint
+    public float ManaValueAmount
     {
-        get => _manaPoint;
-        set => _manaPoint = Mathf.Max(0, value);
+        get => _manaValue;
+        set => _manaValue = Mathf.Max(0, value);
+    }
+    public float ShieldValueAmount
+    {
+        get => _shieldValue;
+        set => _shieldValue = Mathf.Max(0, value);
     }
 
     private void OnEnable()
     {
         GateScript.isPowerDoubler += AmpuntDoubler;
         WallScript.ManaCount += ManaCounter;
+        WallScript.ShieldCount += ShieldCounter;
         WallScript.PowerCount += AmountDoubler;
         CharacterEvent.isCharacterDamage += ShieldAndHealthDecreraser;
     }
@@ -46,6 +53,7 @@ public class GameManager : MonoBehaviour
         GateScript.isPowerDoubler -= AmpuntDoubler;
         WallScript.ManaCount -= ManaCounter;
         WallScript.PowerCount -= AmountDoubler;
+        WallScript.ShieldCount -= ShieldCounter;
         CharacterEvent.isCharacterDamage -= ShieldAndHealthDecreraser;
     }
 
@@ -57,29 +65,37 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        AmountText.text = "Amount: " + AmountValue.ToString();
-        ManaText.text = "Mana: " + ManaPoint.ToString();
+        AmountText.text = "Amount: " + StandartValueAmount.ToString();
+        ManaText.text = "Mana: " + ManaValueAmount.ToString();
     }
 
     void AmpuntDoubler()
     {
-        AmountValue *= 2;
-        Debug.Log(AmountValue);
+        StandartValueAmount *= 2;
+        Debug.Log(StandartValueAmount);
     }
 
     void AmountDoubler()
     {
-        AmountValue += AmountPointIncrease;
-        Debug.Log(AmountValue);
+        StandartValueAmount += AmountPointIncrease;
+        Debug.Log(StandartValueAmount);
         Debug.Log("Power");
     }
 
     void ManaCounter()
     {
-        ManaPoint += ManaPointIncrease;
+        ManaValueAmount += ManaPointIncrease;
         Debug.Log(ManaPointIncrease);
-        Debug.Log(ManaPoint);
+        Debug.Log(ManaValueAmount);
         Debug.Log("Mana");
+    }
+
+    void ShieldCounter()
+    {
+        ShieldValue += ShieldPointIncrease;
+        Debug.Log(ManaPointIncrease);
+        Debug.Log(ManaValueAmount);
+        Debug.Log("Shield");
     }
 
     void ShieldAndHealthDecreraser()
