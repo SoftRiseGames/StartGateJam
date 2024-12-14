@@ -16,11 +16,7 @@ public class Trajectory : MonoBehaviour
         PrepareDots();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     void PrepareDots()
     {

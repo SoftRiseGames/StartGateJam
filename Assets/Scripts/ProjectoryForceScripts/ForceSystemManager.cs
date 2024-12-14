@@ -29,34 +29,43 @@ public class ForceSystemManager : MonoBehaviour
 	Vector2 direction;
 	Vector2 force;
 	float distance;
-
-	//---------------------------------------
+	public bool isDragForce;
 	void Start()
 	{
 		cam = Camera.main;
 		ball.DeActivatedRb();
+		isDragForce = true;
 	}
 
 	void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
-		{
-			isDragging = true;
-			OnDragStart();
-		}
-		if (Input.GetMouseButtonUp(0))
-		{
-			isDragging = false;
-			OnDragEnd();
-		}
-
-		if (isDragging)
-		{
-			OnDrag();
-		}
+		DragUpdater();
 	}
 
-	//-Drag--------------------------------------
+	void DragUpdater()
+    {
+
+		if (isDragForce)
+		{
+			if (Input.GetMouseButtonDown(0))
+			{
+				isDragging = true;
+				OnDragStart();
+			}
+			if (Input.GetMouseButtonUp(0))
+			{
+				isDragging = false;
+				isDragForce = false;
+				OnDragEnd();
+			}
+
+			if (isDragging)
+			{
+				OnDrag();
+			}
+		}
+
+	}
 	void OnDragStart()
 	{
 		ball.DeActivatedRb();
@@ -72,7 +81,7 @@ public class ForceSystemManager : MonoBehaviour
 		direction = (startPoint - endPoint).normalized;
 		force = direction * distance * pushForce;
 
-		//just for debug
+		
 		Debug.DrawLine(startPoint, endPoint);
 
 
@@ -81,7 +90,7 @@ public class ForceSystemManager : MonoBehaviour
 
 	void OnDragEnd()
 	{
-		//push the ball
+	
 		ball.ActivateRb();
 
 		ball.Push(force);

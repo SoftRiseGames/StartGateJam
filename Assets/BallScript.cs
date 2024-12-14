@@ -7,6 +7,10 @@ public class BallScript : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public CircleCollider2D col;
     [HideInInspector] public Vector3 BallPose { get { return transform.position; } }
+    int CollideCounter;
+    [SerializeField] int bulletModeDeActivated;
+    public static Action ColliderToSwitchAction;
+    float startBounciness;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,44 +34,55 @@ public class BallScript : MonoBehaviour
     }
     void Start()
     {
-        physics.bounciness = 0.85f;
+        //physics.bounciness = 0.85f;
+        startBounciness = physics.bounciness;
     }
     private void OnEnable()
     {
-        DoorScript.isEnemScaleUp += BallUpScale;
-        DoorScript.isEnemyBulletMode += BallBulletMode;
-        DoorScript.isMomentumChange += MomentumChange;
-        
+        GateScript.isEnemScaleUp += BallUpScale;
+        GateScript.isBulletMode += BallBulletMode;
+        GateScript.isMomentumChange += MomentumChange;
+        WallScript.ManaCount += CollideCounterVoid;
+        WallScript.PowerCount += CollideCounterVoid;
+
     }
     private void OnDisable()
     {
-        DoorScript.isEnemScaleUp -= BallUpScale;
-        DoorScript.isEnemyBulletMode -= BallBulletMode;
-        DoorScript.isMomentumChange -= MomentumChange;
+        GateScript.isEnemScaleUp -= BallUpScale;
+        GateScript.isBulletMode -= BallBulletMode;
+        GateScript.isMomentumChange -= MomentumChange;
+        WallScript.ManaCount -= CollideCounterVoid;
+        WallScript.PowerCount -= CollideCounterVoid;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (CollideCounter == bulletModeDeActivated)
+            BulletModeDeActivate();
+
+        Debug.Log(CollideCounter);
+        Debug.Log(bulletModeDeActivated);
     }
-    /*
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "gate")
-        {
-            if (collision.transform.GetComponent<DoorScript>().GateType.GateType == DoorType.BallMultiplier)
-            {
-                Debug.Log("a");
-            }
-        }
-    }
-    */
+    
+    
     void BallUpScale() => gameObject.transform.localScale = new Vector2(1.25f, 1.25f);
-    void MomentumChange() { }
+    void MomentumChange() 
+    {
+        DeActivatedRb();
+        ForceSystemManager.Instance.isDragForce = true;
+    }
     void BallBulletMode()
     {
         physics.bounciness = 0;
+        Debug.Log("bullet");
     }
 
+    void CollideCounterVoid() => CollideCounter = CollideCounter + 1;
+
+    void BulletModeDeActivate()
+    {
+        ColliderToSwitchAction?.Invoke();
+    }
+    
 }

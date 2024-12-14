@@ -2,7 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 using System.Threading.Tasks;
-public class DoorScript : MonoBehaviour
+public class GateScript : MonoBehaviour
 {
     public So_DoorTypes GateType;
     public GameObject ball;
@@ -11,9 +11,10 @@ public class DoorScript : MonoBehaviour
 
 
     public static Action isEnemScaleUp;
-    public static Action isEnemyBulletMode;
+    public static Action isBulletMode;
     public static Action isMomentumChange;
     public static Action isPowerDoubler;
+ 
     void Start()
     {
         collider = GetComponent<CircleCollider2D>();
@@ -27,6 +28,7 @@ public class DoorScript : MonoBehaviour
             {
                 GameObject newBall = Instantiate(ball,new Vector2(this.gameObject.transform.position.x+.5f,this.gameObject.transform.position.y) , this.gameObject.transform.rotation);
                 newBall.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(collision.GetComponent<Rigidbody2D>().linearVelocityX * -1, collision.GetComponent<Rigidbody2D>().linearVelocityY);
+                newBall.GetComponent<BallScript>().ActivateRb();
                 isCooldown = true;
                 waitingTime();
             }
@@ -44,7 +46,7 @@ public class DoorScript : MonoBehaviour
             }
             if (GateType.GateType == DoorType.BulletPower && !isCooldown)
             {
-                isEnemyBulletMode?.Invoke();
+                isBulletMode?.Invoke();
                 isCooldown = true;
                 waitingTime();
             }
