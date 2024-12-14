@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ball
   - gate
+  - DamageWindCharacter
   layers:
   - Default
   - TransparentFX

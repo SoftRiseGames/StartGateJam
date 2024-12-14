@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Defence
   m_EditorClassIdentifier: 
   buttonType: 0
-  MinManaCount: 0
+  MinManaCount: 1
+  DefenceShieldValue: 1
+  AttackValue: 0

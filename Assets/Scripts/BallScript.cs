@@ -40,7 +40,6 @@ public class BallScript : MonoBehaviour
     private void OnEnable()
     {
         GateScript.isEnemScaleUp += BallUpScale;
-        GateScript.isBulletMode += BallBulletMode;
         GateScript.isMomentumChange += MomentumChange;
         WallScript.ManaCount += CollideCounterVoid;
         WallScript.PowerCount += CollideCounterVoid;
@@ -49,7 +48,6 @@ public class BallScript : MonoBehaviour
     private void OnDisable()
     {
         GateScript.isEnemScaleUp -= BallUpScale;
-        GateScript.isBulletMode -= BallBulletMode;
         GateScript.isMomentumChange -= MomentumChange;
         WallScript.ManaCount -= CollideCounterVoid;
         WallScript.PowerCount -= CollideCounterVoid;
@@ -60,9 +58,6 @@ public class BallScript : MonoBehaviour
     {
         if (CollideCounter == bulletModeDeActivated)
             BulletModeDeActivate();
-
-        Debug.Log(CollideCounter);
-        Debug.Log(bulletModeDeActivated);
     }
     
     
@@ -72,12 +67,7 @@ public class BallScript : MonoBehaviour
         DeActivatedRb();
         ForceSystemManager.Instance.isDragForce = true;
     }
-    void BallBulletMode()
-    {
-        physics.bounciness = 0;
-        Debug.Log("bullet");
-    }
-
+   
     void CollideCounterVoid() => CollideCounter = CollideCounter + 1;
 
     void BulletModeDeActivate()
