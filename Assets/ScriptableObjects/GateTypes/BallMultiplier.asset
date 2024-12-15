@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e4ccf63bacfad41add77847283972d, type: 3}
   m_Name: BallMultiplier
   m_EditorClassIdentifier: 
-  isCrackable: 0
   GateType: 0
+  Price: 1
   GateSprite: {fileID: 0}

@@ -3,6 +3,7 @@ using UnityEngine;
 public class So_DoorTypes : ScriptableObject
 {
     public DoorType GateType;
+    public float Price;
     public Sprite GateSprite;
 }
 public enum DoorType

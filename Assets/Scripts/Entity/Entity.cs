@@ -42,6 +42,7 @@ public class Entity : MonoBehaviour, IEntity
 
     }
     
+    
     public void Shield(float shieldPower)
     {
         ShieldFloat += shieldPower;
@@ -50,8 +51,15 @@ public class Entity : MonoBehaviour, IEntity
 
     public void TakeDamage(float damage)
     {
+       
         ShieldFloat = ShieldFloat - damage;
-        HealthFloat -= Mathf.Abs(ShieldFloat);
+        
+        if(ShieldFloat<= 0)
+        {
+            HealthFloat -= Mathf.Abs(ShieldFloat);
+            ShieldFloat = 0;
+        }
+       
         UpdateHUD();
     }
 
@@ -60,7 +68,6 @@ public class Entity : MonoBehaviour, IEntity
         HealthText.text = $"{HealthFloat}/{MaxHealthFloat}";
         ShieldText.text = ShieldFloat.ToString();
 
-        
     }
 
     public void Death()

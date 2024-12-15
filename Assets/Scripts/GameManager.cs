@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI ShieldText;
 
     [SerializeField] TextMeshProUGUI EarnedShield;
-
+    [SerializeField] TextMeshProUGUI EarnedEnemyShieldText;
     public float AttackValueAmount;
     public float ManaValueAmount;
     public float ShieldValueAmount;
@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Entity CharacterEntity;
     [SerializeField] Entity EnemyEntity;
+
+
 
 
     [SerializeField] List<Button> AllButtons;
@@ -62,6 +64,7 @@ public class GameManager : MonoBehaviour
             */
         });
     }
+    
     private void Shield()
     {
         if (ManaValueAmount <= 0) return;
@@ -92,7 +95,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("a");
             EnemyEntity.Shield(EnemyEntity.ShieldIncrease);
             StartTurn();
            
@@ -136,6 +138,7 @@ public class GameManager : MonoBehaviour
         ManaText.text = ManaValueAmount.ToString();
         ShieldText.text = ShieldValueAmount.ToString();
         EarnedShield.text = CharacterEntity.ShieldFloat.ToString();
+        EarnedEnemyShieldText.text = EnemyEntity.ShieldFloat.ToString();
     }
     void AmpuntDoubler()
     {
