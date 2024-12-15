@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 public class PeggleGridSaver : MonoBehaviour
 {
 
-    public So_PeggleGridData gridData; // ScriptableObject'e baðlanacak
+    public PeggleGridData gridData; // ScriptableObject'e baðlanacak
 
     [ContextMenu("Save Grid Data")]
     [Button("Save Grid Data")]

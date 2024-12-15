@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 public class PeggleGridLoader : MonoBehaviour
 {
     [SerializeField] private GameObject bubblePrefab; // Tek bir bubble prefab'i
-    [SerializeField] private So_PeggleGridData gridData; // Grid verilerini tutan ScriptableObject
+    [SerializeField] private PeggleGridData gridData; // Grid verilerini tutan ScriptableObject
 
     private void Start()
     {

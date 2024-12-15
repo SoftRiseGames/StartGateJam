@@ -8,6 +8,7 @@ TagManager:
   - gate
   - DamageWindCharacter
   - DamageWindEnemy
+  - Enemy
   layers:
   - Default
   - TransparentFX

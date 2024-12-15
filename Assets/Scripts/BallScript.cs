@@ -13,6 +13,7 @@ public class BallScript : MonoBehaviour
     [SerializeField] int bulletModeDeActivated;
     public static Action ColliderToSwitchAction;
     float startBounciness;
+    bool bulletmode;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,6 +46,7 @@ public class BallScript : MonoBehaviour
         GateScript.isMomentumChange += MomentumChange;
         WallScript.ManaCount += CollideCounterVoid;
         WallScript.PowerCount += CollideCounterVoid;
+        WallScript.bulletMode += BulletmodeBoolControl;
 
     }
     private void OnDisable()
@@ -53,28 +55,36 @@ public class BallScript : MonoBehaviour
         GateScript.isMomentumChange -= MomentumChange;
         WallScript.ManaCount -= CollideCounterVoid;
         WallScript.PowerCount -= CollideCounterVoid;
+        WallScript.bulletMode -= BulletmodeBoolControl;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (CollideCounter == bulletModeDeActivated)
+        if (CollideCounter == bulletModeDeActivated && bulletmode )
             BulletModeDeActivate();
     }
-    
-    
+
+    void BulletmodeBoolControl() => bulletmode = true;
+
     void BallUpScale() => gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x+0.5f, gameObject.transform.localScale.y + 0.5f);
     void MomentumChange() 
     {
         DeActivatedRb();
         ForceSystemManager.Instance.isDragForce = true;
     }
-   
-    void CollideCounterVoid() => CollideCounter = CollideCounter + 1;
+
+    void CollideCounterVoid() 
+    { 
+       if(bulletmode)
+             CollideCounter = CollideCounter + 1;
+    }
 
     void BulletModeDeActivate()
     {
         ColliderToSwitchAction?.Invoke();
+        bulletmode = false;
+        CollideCounter = 0;
     }
  
 
