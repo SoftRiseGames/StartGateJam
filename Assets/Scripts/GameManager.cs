@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI ManaText;
     [SerializeField] TextMeshProUGUI ShieldText;
 
+    [SerializeField] TextMeshProUGUI EarnedShield;
+
     public float AttackValueAmount;
     public float ManaValueAmount;
     public float ShieldValueAmount;
@@ -35,7 +37,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform CameraPosition;
 
     Sequence attackSequence;
-
+    
     private void AttackToEnemy()
     {
         if (ManaValueAmount <= 0) return;
@@ -62,6 +64,9 @@ public class GameManager : MonoBehaviour
     }
     private void Shield()
     {
+        if (ManaValueAmount <= 0) return;
+        ManaValueAmount--;
+
         CharacterEntity.Shield(ShieldValueAmount);
     }
     private void EnemyToChar()
@@ -130,6 +135,7 @@ public class GameManager : MonoBehaviour
         AttackText.text = AttackValueAmount.ToString();
         ManaText.text = ManaValueAmount.ToString();
         ShieldText.text = ShieldValueAmount.ToString();
+        EarnedShield.text = CharacterEntity.ShieldFloat.ToString();
     }
     void AmpuntDoubler()
     {

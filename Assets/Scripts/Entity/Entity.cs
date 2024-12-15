@@ -59,6 +59,8 @@ public class Entity : MonoBehaviour, IEntity
     {
         HealthText.text = $"{HealthFloat}/{MaxHealthFloat}";
         ShieldText.text = ShieldFloat.ToString();
+
+        
     }
 
     public void Death()
