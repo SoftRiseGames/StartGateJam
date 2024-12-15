@@ -1,22 +1,55 @@
 fileFormatVersion: 2
-guid: 2961b3b29ba49034e865394f72a67bba
+guid: 36ca8f34fd02fc34b9af06691ee1d860
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5266070466856999156
-    second: GATEKEEPER_IDLE_0
+      213: -1198261554368940197
+    second: serpent_attack_water_0
   - first:
-      213: 6172849511618041480
-    second: GATEKEEPER_IDLE_1
+      213: 5836285876067559246
+    second: serpent_attack_water_1
   - first:
-      213: -7162113336803242222
-    second: GATEKEEPER_IDLE_2
+      213: -7969465868839788946
+    second: serpent_attack_water_2
   - first:
-      213: -6066365611281315552
-    second: GATEKEEPER_IDLE_3
+      213: 2797774002454498660
+    second: serpent_attack_water_3
   - first:
-      213: -649606794642646206
-    second: GATEKEEPER_IDLE_4
+      213: 2604910220857135917
+    second: serpent_attack_water_4
+  - first:
+      213: -8348314324341710968
+    second: serpent_attack_water_5
+  - first:
+      213: -6293442569819980360
+    second: serpent_attack_water_6
+  - first:
+      213: -4833644377525552643
+    second: serpent_attack_water_7
+  - first:
+      213: -3834220658315382844
+    second: serpent_attack_water_8
+  - first:
+      213: 9101039689092253965
+    second: serpent_attack_water_9
+  - first:
+      213: -4217762815596127777
+    second: serpent_attack_water_10
+  - first:
+      213: -1156974084900209632
+    second: serpent_attack_water_11
+  - first:
+      213: 5725279077461229367
+    second: serpent_attack_water_12
+  - first:
+      213: -2317710763701755188
+    second: serpent_attack_water_13
+  - first:
+      213: -6860979665290765727
+    second: serpent_attack_water_14
+  - first:
+      213: -6154978524233807878
+    second: serpent_attack_water_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -138,111 +171,199 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GATEKEEPER_IDLE_0
+      name: serpent_attack_water_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e6c07ae543ff8b5478763c8d15e4788b
-      internalID: 543149640
+      spriteID: b57f4d7077bee5fe0800000000000000
+      internalID: -1198261554368940197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GATEKEEPER_IDLE_1
+      name: serpent_attack_water_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 48
         y: 0
-        width: 32
-        height: 32
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2763df86a7f11fe47aa8ea52f6e52760
-      internalID: 1846378372
+      spriteID: e47e2a21517aef050800000000000000
+      internalID: 5836285876067559246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GATEKEEPER_IDLE_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6be1e566d8902a0419b29d8131ab6cab
-      internalID: 108407901
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GATEKEEPER_IDLE_3
+      name: serpent_attack_water_2
       rect:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 32
-        height: 32
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: fad32c7166e5c0a43af94b16c3db731e
-      internalID: -1253223226
+      spriteID: e6e543e2405c66190800000000000000
+      internalID: -7969465868839788946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GATEKEEPER_IDLE_4
+      name: serpent_attack_water_3
       rect:
         serializedVersion: 2
-        x: 128
+        x: 144
         y: 0
-        width: 32
-        height: 32
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: cd35f57705686f246b0eb86f1be88926
-      internalID: 458011395
+      spriteID: 46d8f1ac1a0b3d620800000000000000
+      internalID: 2797774002454498660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serpent_attack_water_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2359f16b00862420800000000000000
+      internalID: 2604910220857135917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serpent_attack_water_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88f9e407a54d42c80800000000000000
+      internalID: -8348314324341710968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serpent_attack_water_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bdfe8ba35339a8a0800000000000000
+      internalID: -6293442569819980360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serpent_attack_water_7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df976036c027becb0800000000000000
+      internalID: -4833644377525552643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serpent_attack_water_8
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cfa5a630ac1acac0800000000000000
+      internalID: -3834220658315382844
       vertices: []
       indices: 
       edges: []
@@ -251,7 +372,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cd7df94e0be0cbf4ca42632a9ed724e6
+    spriteID: 8b857664044d5844a9d066e4b141031c
     internalID: 0
     vertices: []
     indices: 
@@ -261,11 +382,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GATEKEEPER_IDLE_0: 543149640
-      GATEKEEPER_IDLE_1: 1846378372
-      GATEKEEPER_IDLE_2: 108407901
-      GATEKEEPER_IDLE_3: -1253223226
-      GATEKEEPER_IDLE_4: 458011395
+      serpent_attack_water_0: -1198261554368940197
+      serpent_attack_water_1: 5836285876067559246
+      serpent_attack_water_2: -7969465868839788946
+      serpent_attack_water_3: 2797774002454498660
+      serpent_attack_water_4: 2604910220857135917
+      serpent_attack_water_5: -8348314324341710968
+      serpent_attack_water_6: -6293442569819980360
+      serpent_attack_water_7: -4833644377525552643
+      serpent_attack_water_8: -3834220658315382844
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,6 +8,7 @@ public class So_PowerAndManaWall : ScriptableObject
     public WallType wallType;
     public float ManaPowerAndShieldIncreaser;
     public float NeedToBreak;
+    public float ManaPrice;
 }
 public enum WallType
 {

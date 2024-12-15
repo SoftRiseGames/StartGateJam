@@ -94,12 +94,17 @@ public class SkillGateManager : MonoBehaviour
 
     private void PlaceGate()
     {
-        foreach (GameObject skillbutton in SkillButtons)
+        if(GameManager.Instance.ManaValueAmount>= currentHandGate.GetComponent<GateScript>().GateType.Price)
         {
-            skillbutton.GetComponent<Button>().interactable = true;
+            foreach (GameObject skillbutton in SkillButtons)
+            {
+                skillbutton.GetComponent<Button>().interactable = true;
+            }
+            currentHandGate.GetComponent<CircleCollider2D>().enabled = true;
+
+            GameManager.Instance.ManaValueAmount = GameManager.Instance.ManaValueAmount - currentHandGate.GetComponent<GateScript>().GateType.Price;
+            currentHandGate = null;
         }
-        currentHandGate.GetComponent<CircleCollider2D>().enabled = true;
-        currentHandGate = null;
     }
 
     private void DiscardGate()
