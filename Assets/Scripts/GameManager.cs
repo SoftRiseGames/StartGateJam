@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
     //Feel
     [SerializeField] Transform CameraPosition;
 
+    public Sprite ObjectDoublerSprite;
+    public Sprite ObjectUpscaleSprite;
+    public Sprite MomentumChangerSprite;
+    public Sprite BulletSprite;
+
     Sequence attackSequence;
     
     private void AttackToEnemy()

@@ -60,8 +60,11 @@ public class SkillGateManager : MonoBehaviour
         GameManager.Instance.canDrag = false;
         GameObject GateSystem = Instantiate(SkillGateManager.instance.Gate, gameObject.transform.position, gameObject.transform.rotation);
         GateSystem.GetComponent<GateScript>().GateType = SkillGateManager.instance.GateTypes[SkillGateManager.ListNumber];
+        
+        Debug.Log("tut");
 
-        currentHandGate = GateSystem; 
+        currentHandGate = GateSystem;
+        currentHandGate.GetComponent<SpriteRenderer>().sprite = currentHandGate.GetComponent<GateScript>().GateType.GateSprite;
     }
 
 
@@ -101,7 +104,6 @@ public class SkillGateManager : MonoBehaviour
                 skillbutton.GetComponent<Button>().interactable = true;
             }
             currentHandGate.GetComponent<CircleCollider2D>().enabled = true;
-
             GameManager.Instance.ManaValueAmount = GameManager.Instance.ManaValueAmount - currentHandGate.GetComponent<GateScript>().GateType.Price;
             currentHandGate = null;
         }

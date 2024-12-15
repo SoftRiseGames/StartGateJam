@@ -30,8 +30,9 @@ public class Entity : MonoBehaviour, IEntity
         anim.Play("Attack");
         DOVirtual.DelayedCall(duration, () =>
          {
-
+             Debug.Log("Attack");
              entity.TakeDamage(attackPower);
+             
              if (entity.HealthFloat <= 0)
              {
                  entity.Death();
