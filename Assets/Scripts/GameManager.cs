@@ -63,7 +63,6 @@ public class GameManager : MonoBehaviour
     private void Shield()
     {
         CharacterEntity.Shield(ShieldValueAmount);
-        Debug.Log(CharacterEntity.ShieldFloat);
     }
     private void EnemyToChar()
     {
@@ -85,9 +84,6 @@ public class GameManager : MonoBehaviour
             */
             GameObject splash =Instantiate(EnemyEntity.attackOBJ);
             splash.transform.DOMoveX(CharacterEntity.transform.position.x + .5f, 1f).OnComplete(() => {  Destroy(splash); StartTurn(); });
-           
-
-          
         }
         else
         {
@@ -113,6 +109,9 @@ public class GameManager : MonoBehaviour
         canDrag = false;
         AllButtonsHudUpdate(false);
         EnemyToChar();
+
+        ShieldValueAmount = 0;
+        AttackValueAmount = 0;
 
     }
 
@@ -182,4 +181,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
     }
+
+
 }

@@ -50,7 +50,8 @@ public class Entity : MonoBehaviour, IEntity
 
     public void TakeDamage(float damage)
     {
-        HealthFloat -= damage;
+        ShieldFloat = ShieldFloat - damage;
+        HealthFloat -= Mathf.Abs(ShieldFloat);
         UpdateHUD();
     }
 

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AmountBall
   m_EditorClassIdentifier: 
   WallSkin: {fileID: 8166710274925509176, guid: 3076b52009cea4743851fb463a2bfea5, type: 3}
-  wallType: 1
-  ManaOrPowerIncreaser: 10
+  wallType: 2
+  ManaPowerAndShieldIncreaser: 0
   NeedToBreak: 1
